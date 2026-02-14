@@ -36,13 +36,13 @@
     }
     
     .reveal h1 { font-size: 2.8em; line-height: 1.2; }
-    .reveal h2 { font-size: 1.8em; }
-    .reveal h3 { font-size: 1.3em; color: var(--sage-dark); }
+    .reveal h2 { font-size: 1.6em; }
+    .reveal h3 { font-size: 1.2em; color: var(--sage-dark); }
     
     .reveal p, .reveal li {
       color: var(--text-dark);
       line-height: 1.5;
-      font-size: 0.9em;
+      font-size: 0.85em;
     }
     
     .reveal ul {
@@ -51,7 +51,7 @@
     }
     
     .reveal li {
-      margin-bottom: 0.5em;
+      margin-bottom: 0.4em;
       padding-left: 1.5em;
       position: relative;
     }
@@ -124,16 +124,38 @@
       margin-bottom: 0.5em;
     }
     
-    /* Content Slides */
+    /* Content Slides with Illustration */
     .content-slide {
-      padding: 1.5em;
+      padding: 1em;
+    }
+    
+    .slide-with-illustration {
+      display: flex;
+      gap: 1.5em;
+      align-items: flex-start;
+    }
+    
+    .slide-content {
+      flex: 1;
+      min-width: 0;
+    }
+    
+    .slide-illustration {
+      flex: 0 0 280px;
+      text-align: center;
+    }
+    
+    .slide-illustration img {
+      max-width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(122, 154, 109, 0.2);
     }
     
     .content-slide h2 {
       border-bottom: 3px solid var(--sage);
       padding-bottom: 0.3em;
-      margin-bottom: 0.6em;
-      font-size: 1.6em;
+      margin-bottom: 0.5em;
+      font-size: 1.5em;
     }
     
     /* Quote Slide */
@@ -144,11 +166,11 @@
     
     .quote-slide blockquote {
       font-family: 'Amiri', serif;
-      font-size: 1.3em;
+      font-size: 1.2em;
       color: var(--text-dark);
       border: none;
       font-style: italic;
-      max-width: 85%;
+      max-width: 80%;
       margin: 0 auto;
       line-height: 1.5;
     }
@@ -170,8 +192,8 @@
     .highlight-box {
       background: var(--sage-pale);
       border-left: 4px solid var(--sage);
-      padding: 0.8em 1.2em;
-      margin: 0.8em 0;
+      padding: 0.6em 1em;
+      margin: 0.6em 0;
       border-radius: 0 8px 8px 0;
     }
 
@@ -180,22 +202,13 @@
       font-style: italic;
     }
 
-    /* Two columns */
-    .two-col {
-      display: flex;
-      gap: 2em;
-    }
-    .two-col > div {
-      flex: 1;
-    }
-
     /* Schedule table */
     .schedule {
       width: 100%;
-      font-size: 0.85em;
+      font-size: 0.8em;
     }
     .schedule td {
-      padding: 0.4em 0;
+      padding: 0.3em 0;
       border-bottom: 1px solid var(--sage-light);
     }
     .schedule td:first-child {
@@ -220,15 +233,26 @@
     }
 
     /* Smaller text helper */
-    .small { font-size: 0.85em; }
+    .small { font-size: 0.8em; }
 
     /* Nested list styling */
     .reveal ul ul {
-      margin-top: 0.3em;
+      margin-top: 0.2em;
       margin-left: 1em;
     }
     .reveal ul ul li::before {
       content: "–";
+    }
+
+    /* Illustration slide (full illustration) */
+    .illustration-slide {
+      text-align: center;
+    }
+    
+    .illustration-slide img {
+      max-height: 550px;
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(122, 154, 109, 0.3);
     }
   </style>
 </head>
@@ -236,144 +260,192 @@
   <div class="reveal">
     <div class="slides">
       
-      <!-- Slide 1: Title -->
-      <section class="title-slide" data-background-image="images/cover.webp" data-background-opacity="0.15">
+      <!-- Slide 1: Title with Illustration -->
+      <section class="title-slide" data-background-image="illustrations/01-title.webp" data-background-opacity="0.2">
         <p class="leaf-decoration">❀ ❀ ❀</p>
         <h1>Upgrade Diri<br>di Bulan Suci</h1>
         <p class="subtitle">Kajian Aleemah — Khusus Muslimah</p>
         <div class="meta">
           <p class="speaker">Ust. Ahmad Fatkhurrohman Rustandi, Lc., M.A.</p>
-          <p>Selasa, 25 Februari 2026 (8 Ramadhan 1447 H)</p>
-          <p>Kaktus Cafe</p>
+          <p>Rabu, 25 Februari 2026</p>
+          <p>Kaktus Coffee Place</p>
         </div>
       </section>
 
       <!-- Slide 2: Latar Belakang -->
       <section class="content-slide">
-        <h2>Latar Belakang</h2>
-        <p>Bulan Ramadhan adalah bulan yang penuh berkah, bulan di mana pahala ibadah dilipatgandakan dan pintu-pintu surga dibuka lebar. Bagi seorang muslimah, Ramadhan merupakan kesempatan emas untuk "upgrade" diri secara spiritual, emosional, dan sosial.</p>
-        <p>Namun, di tengah kesibukan mengurus rumah tangga, anak, dan berbagai peran lainnya, sering kali semangat beribadah menurun atau tidak maksimal. Terlebih lagi, ada kondisi khusus yang dialami wanita seperti haid yang memerlukan pemahaman agar pahala tetap mengalir.</p>
-        <p>Melalui kajian ini, diharapkan para muslimah dapat mempersiapkan diri dengan baik menyambut Ramadhan, memaksimalkan ibadah selama bulan suci, serta melanjutkan kebaikan dengan puasa syawal Syawal sebagai penyempurna pahala Ramadhan.</p>
+        <div class="slide-with-illustration">
+          <div class="slide-content">
+            <h2>Latar Belakang</h2>
+            <p>Bulan Ramadhan adalah bulan yang penuh berkah, bulan di mana pahala ibadah dilipatgandakan dan pintu-pintu surga dibuka lebar.</p>
+            <p>Bagi seorang muslimah, Ramadhan merupakan kesempatan emas untuk "upgrade" diri secara spiritual, emosional, dan sosial.</p>
+            <p>Namun, di tengah kesibukan mengurus rumah tangga, anak, dan berbagai peran lainnya, sering kali semangat beribadah menurun atau tidak maksimal.</p>
+          </div>
+          <div class="slide-illustration">
+            <img src="illustrations/02-latar-belakang.webp" alt="Latar Belakang">
+          </div>
+        </div>
       </section>
 
       <!-- Slide 3: Tema Kegiatan -->
       <section class="content-slide">
-        <h2>Tema Kegiatan</h2>
-        <div class="highlight-box">
-          <p>"Upgrade Diri di Bulan Suci Ramadhan"</p>
+        <div class="slide-with-illustration">
+          <div class="slide-content">
+            <h2>Tema Kegiatan</h2>
+            <div class="highlight-box">
+              <p>"Upgrade Diri di Bulan Suci Ramadhan"</p>
+            </div>
+            <p style="margin-top: 1em;">Memaksimalkan ibadah dan meraih pahala berlimpah di bulan Ramadhan, termasuk saat kondisi khusus wanita, serta melanjutkan kebaikan hingga Syawal.</p>
+          </div>
+          <div class="slide-illustration">
+            <img src="illustrations/03-tema.webp" alt="Tema Kegiatan">
+          </div>
         </div>
-        <p style="margin-top: 1em;">Memaksimalkan ibadah dan meraih pahala berlimpah di bulan Ramadhan, termasuk saat kondisi khusus wanita, serta melanjutkan kebaikan hingga Syawal.</p>
       </section>
 
       <!-- Slide 4: Tujuan Kegiatan -->
       <section class="content-slide">
-        <h2>Tujuan Kegiatan</h2>
-        <h3>Tujuan Umum</h3>
-        <p>Memberikan bekal ilmu dan motivasi kepada muslimah agar dapat memaksimalkan ibadah dan pengembangan diri selama bulan Ramadhan hingga Syawal.</p>
-        
-        <h3 style="margin-top: 1em;">Tujuan Khusus</h3>
-        <ol>
-          <li>Membekali peserta dengan strategi meningkatkan kualitas ibadah di bulan Ramadhan</li>
-          <li>Memberikan pemahaman amalan wanita saat haid agar pahala tetap maksimal</li>
-          <li>Menjelaskan keutamaan dan amalan tanggal 1-7 Syawal</li>
-          <li>Memotivasi peserta untuk konsisten beribadah dan upgrade diri</li>
-          <li>Mempererat silaturahmi antar sesama muslimah</li>
-        </ol>
+        <div class="slide-with-illustration">
+          <div class="slide-content">
+            <h2>Tujuan Kegiatan</h2>
+            <h3>Tujuan Umum</h3>
+            <p>Memberikan bekal ilmu dan motivasi kepada muslimah agar dapat memaksimalkan ibadah selama bulan Ramadhan hingga Syawal.</p>
+            
+            <h3 style="margin-top: 0.8em;">Tujuan Khusus</h3>
+            <ol class="small">
+              <li>Membekali peserta dengan strategi meningkatkan kualitas ibadah</li>
+              <li>Memberikan pemahaman amalan wanita saat haid</li>
+              <li>Menjelaskan keutamaan dan amalan tanggal 1-7 Syawal</li>
+              <li>Memotivasi peserta untuk konsisten beribadah</li>
+            </ol>
+          </div>
+          <div class="slide-illustration">
+            <img src="illustrations/04-tujuan.webp" alt="Tujuan Kegiatan">
+          </div>
+        </div>
       </section>
 
       <!-- Slide 5: Sasaran Peserta -->
       <section class="content-slide">
-        <h2>Sasaran Peserta</h2>
-        <ul>
-          <li>Perempuan usia ± 25–50 tahun, dengan profesi pekerja, mahasiswa maupun ibu rumah tangga. Peserta didominasi oleh ibu muda</li>
-          <li>Jumlah peserta: <strong>± 45 orang</strong></li>
-        </ul>
-        
-        <h3 style="margin-top: 1.5em;">Bentuk dan Metode Kegiatan</h3>
-        <ol>
-          <li>Kajian Islami (tausiyah)</li>
-          <li>Refleksi & muhasabah ringan</li>
-          <li>Sesi tanya jawab interaktif</li>
-          <li>Doa bersama</li>
-        </ol>
-        <p class="small" style="margin-top: 0.5em;"><em>NB: Pendekatan disampaikan dengan bahasa yang lembut, aplikatif, dan relevan dengan kehidupan ibu-ibu muda</em></p>
+        <div class="slide-with-illustration">
+          <div class="slide-content">
+            <h2>Sasaran Peserta</h2>
+            <ul>
+              <li>Perempuan usia ± 25–50 tahun</li>
+              <li>Pekerja, mahasiswa, ibu rumah tangga</li>
+              <li>Jumlah peserta: <strong>± 45 orang</strong></li>
+            </ul>
+            
+            <h3 style="margin-top: 1em;">Bentuk Kegiatan</h3>
+            <ol class="small">
+              <li>Kajian Islami (tausiyah)</li>
+              <li>Refleksi & muhasabah ringan</li>
+              <li>Sesi tanya jawab interaktif</li>
+              <li>Doa bersama</li>
+            </ol>
+          </div>
+          <div class="slide-illustration">
+            <img src="illustrations/05-sasaran.webp" alt="Sasaran Peserta">
+          </div>
+        </div>
       </section>
 
       <!-- Slide 6: Section - Pokok Bahasan -->
-      <section class="section-header" data-background-image="images/ramadan.webp" data-background-opacity="0.2">
+      <section class="section-header" data-background-image="illustrations/06-pokok-bahasan.webp" data-background-opacity="0.25">
         <p class="arabic">شَهْرُ رَمَضَانَ</p>
         <h2>Pokok Bahasan</h2>
       </section>
 
       <!-- Slide 7: Garis Besar Materi -->
       <section class="content-slide">
-        <h2>Garis Besar Materi</h2>
-        <ol>
-          <li>Keutamaan dan Hikmah Bulan Ramadhan</li>
-          <li>Strategi Memaksimalkan Ibadah di Bulan Ramadhan
-            <ul class="small">
-              <li>Manajemen waktu ibadah</li>
-              <li>Meningkatkan kualitas tilawah dan tadabbur Al-Qur'an</li>
-              <li>Menjaga kesehatan fisik dan mental saat puasa</li>
-            </ul>
-          </li>
-          <li>Amalan Wanita Saat Haid di Bulan Ramadhan
-            <ul class="small">
-              <li>Ibadah yang tetap bisa dilakukan</li>
-              <li>Tips agar pahala tetap maksimal</li>
-              <li>Memanfaatkan waktu dengan produktif</li>
-            </ul>
-          </li>
-          <li>Amalan Tanggal 1-7 Syawal
-            <ul class="small">
-              <li>Keutamaan puasa 6 hari Syawal</li>
-              <li>Menjaga momentum kebaikan pasca Ramadhan</li>
-              <li>Istiqomah dalam beribadah</li>
-            </ul>
-          </li>
-        </ol>
+        <div class="slide-with-illustration">
+          <div class="slide-content">
+            <h2>Garis Besar Materi</h2>
+            <ol class="small">
+              <li><strong>Keutamaan dan Hikmah Bulan Ramadhan</strong></li>
+              <li><strong>Strategi Memaksimalkan Ibadah</strong>
+                <ul>
+                  <li>Manajemen waktu ibadah</li>
+                  <li>Meningkatkan kualitas tilawah</li>
+                </ul>
+              </li>
+              <li><strong>Amalan Wanita Saat Haid</strong>
+                <ul>
+                  <li>Ibadah yang tetap bisa dilakukan</li>
+                  <li>Tips agar pahala tetap maksimal</li>
+                </ul>
+              </li>
+              <li><strong>Amalan Tanggal 1-7 Syawal</strong>
+                <ul>
+                  <li>Keutamaan puasa 6 hari Syawal</li>
+                  <li>Menjaga momentum kebaikan</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="slide-illustration">
+            <img src="illustrations/07-materi.webp" alt="Garis Besar Materi">
+          </div>
+        </div>
       </section>
 
       <!-- Slide 8: Waktu dan Tempat -->
       <section class="content-slide">
-        <h2>Waktu dan Tempat</h2>
-        <table class="schedule">
-          <tr>
-            <td>Hari/Tanggal</td>
-            <td>Selasa, 25 Februari 2026 (8 Ramadhan 1447 H)</td>
-          </tr>
-          <tr>
-            <td>Waktu</td>
-            <td>08.30 WIB - selesai (± 2 jam)</td>
-          </tr>
-          <tr>
-            <td>Tempat</td>
-            <td>Kaktus Cafe</td>
-          </tr>
-        </table>
+        <div class="slide-with-illustration">
+          <div class="slide-content">
+            <h2>Waktu dan Tempat</h2>
+            <table class="schedule">
+              <tr>
+                <td>Hari/Tanggal</td>
+                <td>Rabu, 25 Februari 2026</td>
+              </tr>
+              <tr>
+                <td>Waktu</td>
+                <td>08.30 WIB - selesai (± 2 jam)</td>
+              </tr>
+              <tr>
+                <td>Tempat</td>
+                <td>Kaktus Coffee Place</td>
+              </tr>
+            </table>
+            <div class="highlight-box" style="margin-top: 1em;">
+              <p>📍 Lokasi strategis & nyaman untuk kajian muslimah</p>
+            </div>
+          </div>
+          <div class="slide-illustration">
+            <img src="illustrations/08-waktu-tempat.webp" alt="Waktu dan Tempat">
+          </div>
+        </div>
       </section>
 
       <!-- Slide 9: Susunan Acara -->
       <section class="content-slide">
-        <h2>Susunan Acara</h2>
-        <ol>
-          <li>Pembukaan & Tilawah (10 menit)</li>
-          <li>Sambutan Panitia (5 menit)</li>
-          <li>Kajian Utama oleh Narasumber (60 menit)</li>
-          <li>Refleksi & Muhasabah (15 menit)</li>
-          <li>Tanya Jawab Interaktif (20 menit)</li>
-          <li>Doa Penutup (10 menit)</li>
-          <li>Pembagian Doorprize & Goodie Bag</li>
-          <li>Ramah Tamah / Foto Bersama (opsional)</li>
-        </ol>
+        <div class="slide-with-illustration">
+          <div class="slide-content">
+            <h2>Susunan Acara</h2>
+            <ol class="small">
+              <li>Pembukaan & Tilawah (10 menit)</li>
+              <li>Sambutan Panitia (5 menit)</li>
+              <li>Kajian Utama oleh Narasumber (60 menit)</li>
+              <li>Refleksi & Muhasabah (15 menit)</li>
+              <li>Tanya Jawab Interaktif (20 menit)</li>
+              <li>Doa Penutup (10 menit)</li>
+              <li>Pembagian Doorprize & Goodie Bag</li>
+              <li>Ramah Tamah / Foto Bersama</li>
+            </ol>
+          </div>
+          <div class="slide-illustration">
+            <img src="illustrations/09-susunan-acara.webp" alt="Susunan Acara">
+          </div>
+        </div>
       </section>
 
       <!-- Slide 10: Penutup -->
-      <section class="quote-slide">
+      <section class="quote-slide" data-background-image="illustrations/10-penutup.webp" data-background-opacity="0.2">
         <blockquote>
-          Kajian ini diharapkan menjadi ruang belajar dan berbagi bagi muslimah untuk upgrade diri di bulan Ramadhan dengan sebaik-baiknya. Dengan pemahaman yang benar tentang ibadah di bulan Ramadhan, termasuk saat kondisi khusus wanita, serta amalan di bulan Syawal, diharapkan setiap muslimah dapat meraih pahala yang maksimal dan menjadi pribadi yang lebih baik.
+          Kajian ini diharapkan menjadi ruang belajar dan berbagi bagi muslimah untuk upgrade diri di bulan Ramadhan dengan sebaik-baiknya.
         </blockquote>
-        <p class="source">Semoga Allah SWT meridhai setiap langkah kebaikan kita</p>
+        <p class="source">جَزَاكُمُ اللهُ خَيْرًا<br>Semoga Allah SWT meridhai setiap langkah kebaikan kita</p>
       </section>
 
     </div>
